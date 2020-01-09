@@ -1,0 +1,64 @@
+
+#\u670D\u52A1\u542F\u52A8\u63D0\u4F9B\u7684\u8BBF\u95EE\u7AEF\u53E3
+server:
+  port: 9111
+
+
+#\u670D\u52A1\u5E94\u7528\u540D
+spring:
+  application:
+    name: qrcode-login-demo
+
+  redis:
+    host: 111.231.110.198
+    port: 6179
+    database: 10
+    password: 987321
+
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://111.231.110.198:3306/platform?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+      username: root
+      password: _Lyj112233
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      # \u4E0B\u9762\u4E3A\u8FDE\u63A5\u6C60\u7684\u8865\u5145\u8BBE\u7F6E\uFF0C\u5E94\u7528\u5230\u4E0A\u9762\u6240\u6709\u6570\u636E\u6E90\u4E2D
+      # \u521D\u59CB\u5316\u5927\u5C0F\uFF0C\u6700\u5C0F\uFF0C\u6700\u5927
+      # druid \u914D\u7F6E: https://github.com/alibaba/druid/wiki/
+      initialSize: 1
+      minIdle: 1
+      maxActive: 20
+      # \u914D\u7F6E\u83B7\u53D6\u8FDE\u63A5\u7B49\u5F85\u8D85\u65F6\u7684\u65F6\u95F4
+      maxWait: 60000
+      # \u914D\u7F6E\u95F4\u9694\u591A\u4E45\u624D\u8FDB\u884C\u4E00\u6B21\u68C0\u6D4B\uFF0C\u68C0\u6D4B\u9700\u8981\u5173\u95ED\u7684\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u5355\u4F4D\u662F\u6BEB\u79D2
+      timeBetweenEvictionRunsMillis: 60000
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      # \u914D\u7F6E\u4E00\u4E2A\u8FDE\u63A5\u5728\u6C60\u4E2D\u6700\u5C0F\u751F\u5B58\u7684\u65F6\u95F4\uFF0C\u5355\u4F4D\u662F\u6BEB\u79D2
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # \u6253\u5F00PSCache\uFF0C\u5E76\u4E14\u6307\u5B9A\u6BCF\u4E2A\u8FDE\u63A5\u4E0APSCache\u7684\u5927\u5C0F
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # \u914D\u7F6E\u76D1\u63A7\u7EDF\u8BA1\u62E6\u622A\u7684filters\uFF0Cstat\u7528\u4E8E\u76D1\u63A7\u754C\u9762\uFF0C'wall'\u7528\u4E8E\u9632\u706B\u5899\u9632\u5FA1sql\u6CE8\u5165, slf4j\u7528\u4E8Edruid\u8BB0\u5F55sql\u65E5\u5FD7
+      filters: stat,slf4j,wall
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: 123456
+      # \u901A\u8FC7connectProperties\u5C5E\u6027\u6765\u6253\u5F00mergeSql\u529F\u80FD\uFF1B\u6162SQL\u8BB0\u5F55
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # \u5408\u5E76\u591A\u4E2ADruidDataSource\u7684\u76D1\u63A7\u6570\u636E
+      useGlobalDataSourceStat: false
+  jpa:
+    database: mysql
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
