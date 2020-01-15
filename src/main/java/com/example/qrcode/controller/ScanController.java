@@ -134,6 +134,7 @@ public class ScanController {
         if (!redisRepository.exists(loginQrcodeKey)){
             return Message.error(ExceptionResultCode.INVALID_QRCODE);
         }
+
         String qrcodeStatus = redisRepository.get(loginQrcodeKey);
         Message message = new Message();
         if (QrCodeEnum.unscan.toString().equalsIgnoreCase(qrcodeStatus)){           //继续循环,等待操作
