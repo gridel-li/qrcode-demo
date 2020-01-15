@@ -27,6 +27,11 @@ public enum ExceptionResultCode {
     LOGOUT(3003,"退出登录"),
     LOGIN_PASSWORD_FAIL(3004,"密码错误"),
     PERMISSION_NONE(3005,"权限不足"),
+    ACCOUNT_LOCKED(3006, "账号已被锁定，不能登录"),
+    INVALID_QRCODE(3007, "二维码已失效，请重新获取！"),
+    GET_QRCODE_FAILED(3008, "获取二维码信息失败，请重新获取！"),
+
+
     //同步配置信息异常
     SYNC_CONF_APP(4001, "该应用已经配置，请修改"),
 
@@ -50,6 +55,7 @@ public enum ExceptionResultCode {
 
 
     SYNC_REMOTE_ERROR(8001, "远程调用接口失败，请检查接口地址是否正确！"),
+
 
 ;
     /**

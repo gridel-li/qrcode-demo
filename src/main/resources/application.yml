@@ -62,3 +62,8 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+qrcode:
+  format: png
+  imgDomain: http://localhost:9111/scan/file?filePath=
+  rootPath: 123123

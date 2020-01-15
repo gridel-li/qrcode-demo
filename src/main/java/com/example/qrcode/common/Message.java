@@ -100,6 +100,9 @@ public class Message<T> {
     public static Message error(ExceptionResultCode error, Object content) {
         return new Message(error, content);
     }
+    public static Message error(ExceptionResultCode error) {
+        return new Message(error,null);
+    }
     public static Message error() {
         return new Message().error(CommonConstants.ResultObj.ERROR_CODE,CommonConstants.ResultObj.ERROR_MSG);
     }

@@ -90,13 +90,12 @@ public class SecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
         security
                 .authorizeRequests()
                 .antMatchers(
-                        "/auth/token",
-                        "/auth/getVerifyCode",
-                        "/auth/getQrcodeContent",
-                        "/auth/qrcodeCheckLogin",
+                        "/scan/**",
                         "/views/**",
                         "/js/**",
-                        "/images/**"
+                        "/images/**",
+                        "/**",
+                        "/templates/**"
                 )
                 .permitAll().requestMatchers(CorsUtils::isPreFlightRequest).permitAll();//设置可跨域请求时的放行
         security.headers().frameOptions().disable();
@@ -104,6 +103,7 @@ public class SecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(new MyAuthenticationEntryPoint()).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .formLogin().loginProcessingUrl("/login").and()
                 .authorizeRequests()
                 .anyRequest().authenticated();
 

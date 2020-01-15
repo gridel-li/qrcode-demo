@@ -14,6 +14,11 @@ public class CommonConstants {
         public static final Integer ERROR_CODE = 500;
         public static final Integer ERROR_TOKEN = 401;
 
+        public static final Integer QRCODE_UNSCAN = 2001;
+        public static final Integer QRCODE_SCAN = 2002;
+        public static final Integer QRCODE_LOGIN = 2003;
+        public static final Integer QRCODE_CANCEL = 2004;
+
         public static final String UNKNOWN_ERROR_MSG = "未知错误";
         public static final String HYSTRIX_ERROR_MSG = "服务器丢失";
         public static final String PARAMETER_ERROR_MSG = "参数错误";
@@ -27,4 +32,11 @@ public class CommonConstants {
         public static final String LOGIN_ERROR_MSG = "登陆失败";
         public static final String LOGIN_ERROR_NOT_REGISTERED_MSG = "用户未注册";
     }
+
+
+    //二维码内容
+    public static final String QR_CODE_INFO = "qrcode:login_qr_code#";
+
+    //二维码内容key
+    public static final String QRCODE_LOGIN = "qrcode_login_";
 }
